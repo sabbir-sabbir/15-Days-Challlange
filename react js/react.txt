@@ -273,6 +273,20 @@ function Greeting(props) {
 
 
 answer 15---
+React Hooks are functions that allow you to use React features, like state and lifecycle methods, in functional components. Before hooks, these features were only available in class components.
+
+Commonly Used React Hooks:
+useState:
+Used to add state to functional components.
+const [count, setCount] = useState(0);
+
+
+
+
+
+
+Intermediate Interview Questions Of React:.....................
+
 
 
 
