@@ -158,5 +158,36 @@ function ItemList() {
 
 
 
+answer 11---
+
+In React, handling events is similar to handling events in regular JavaScript, but with some syntax differences.
+
+Basic Steps:
+Attach Event Handler:
+
+Add an event attribute (e.g., onClick, onChange) to an element, assigning it a function.
+Event names are camelCase in React (e.g., onClick instead of onclick).
+Define Event Handler Function:
+
+The function can be defined in the component to handle the event action.
+Pass Event Object (if needed):
+
+Event handlers automatically receive the event object as a parameter.
+
+function Button() {
+  function handleClick() {
+    alert("Button clicked!");
+  }
+
+  return <button onClick={handleClick}>Click Me</button>;
+}
+
+
+
+
+answer 12---
+
+
+
 
 
