@@ -1,0 +1,14 @@
+Basic Interview Questions Of React : ...
+answer 1 ---
+React is a JavaScript library developed by Facebook for building user interfaces, especially single-page applications. It lets developers create reusable UI components that update dynamically as data changes.
+
+Why React is Used:
+Component-Based: React breaks the UI into small, reusable pieces (components), making code more organized and manageable.
+Fast Rendering: React uses a "virtual DOM" to efficiently update only parts of the page that need changes, making it fast.
+Unidirectional Data Flow: Data flows one way, making it easier to understand and debug complex applications.
+
+
+
+answer 2---
+
+
