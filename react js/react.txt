@@ -19,5 +19,10 @@ JSX Compilation: Under the hood, JSX is compiled to JavaScript, making it fast a
 
 
 
-
+answer 3---
+Key Differences:
+JavaScript Expressions: In JSX, you can embed JavaScript expressions inside {} brackets (e.g., {2 + 2}).
+Attributes: JSX uses camelCase for attributes instead of HTML's lowercase (e.g., className instead of class, onClick instead of onclick).
+Self-Closing Tags: All tags must be closed, even single elements (e.g., <img />, <br />).
+JavaScript Logic: JSX is not HTML but compiles to JavaScript, so you can include conditionals and loops directly within JSX.
 
