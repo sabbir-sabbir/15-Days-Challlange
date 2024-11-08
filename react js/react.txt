@@ -320,7 +320,7 @@ Runs after render: useEffect runs after the component renders.
 Dependencies: You can control when useEffect runs using the dependency array:
 Empty Array ([]): Runs only once, when the component mounts.
 With Values: Runs when the specified values change.
-Without Array: Runs after every render.
+Without Array: Runs after every render. 
 
 useEffect(() => {
   console.log("Component mounted or updated");
@@ -331,6 +331,11 @@ useEffect(() => {
 }, []);  // Empty array means it runs only once when the component mounts.
 
 Explanation: useEffect runs the function when the component mounts, and the return function cleans up when the component unmounts or before the effect runs again.
+
+
+
+answer 3---
+
 
 
 
