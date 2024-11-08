@@ -10,5 +10,14 @@ Unidirectional Data Flow: Data flows one way, making it easier to understand and
 
 
 answer 2---
+JSX (JavaScript XML) is a syntax extension for JavaScript that lets you write HTML-like code within JavaScript. It’s commonly used in React to describe what the UI should look like.
+
+Why JSX is Preferred in React:
+Readability: JSX makes the code easier to read and write by combining HTML-like syntax directly with JavaScript logic.
+Component Structure: JSX closely resembles the structure of the UI, making it easier to visualize and manage components.
+JSX Compilation: Under the hood, JSX is compiled to JavaScript, making it fast and optimized for React.
+
+
+
 
 
