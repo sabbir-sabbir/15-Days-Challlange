@@ -335,6 +335,31 @@ Explanation: useEffect runs the function when the component mounts, and the retu
 
 
 answer 3---
+Using fetch() (Built-in Browser API):
+import React, { useState, useEffect } from "react";
+
+function App() {
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    // Make the API call when the component mounts
+    fetch("https://api.example.com/data")
+      .then(response => response.json())  // Convert response to JSON
+      .then(data => setData(data))        // Set the data in state
+      .catch(error => console.error("Error fetching data:", error));
+  }, []);  // Empty array means this runs once when the component mounts
+
+  return (
+    <div>
+      <h1>Data from API:</h1>
+      {data ? (
+        <pre>{JSON.stringify(data, null, 2)}</pre>
+      ) : (
+        <p>Loading...</p>
+      )}
+    </div>
+  );
+}
 
 
 
