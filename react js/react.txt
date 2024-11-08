@@ -26,3 +26,72 @@ Attributes: JSX uses camelCase for attributes instead of HTML's lowercase (e.g.,
 Self-Closing Tags: All tags must be closed, even single elements (e.g., <img />, <br />).
 JavaScript Logic: JSX is not HTML but compiles to JavaScript, so you can include conditionals and loops directly within JSX.
 
+
+
+answer 4---
+Components are the building blocks of a React application. Each component is a self-contained piece of UI that represents part of the web page, like a button, form, or header.
+
+Key Points:
+Reusable: Components can be reused across the app, making code more modular.
+Independent: Each component handles its own structure, logic, and styling.
+Types: Components can be functional (simple functions) or class-based (use ES6 classes).
+
+
+
+answer 5---
+Functional components and class components are two ways to define components in React, each with different syntax and features.
+
+Functional Components:
+Simple functions that take props as an argument and return JSX.
+Use React Hooks (like useState, useEffect) to manage state and lifecycle.
+Preferred for simplicity and readability.
+
+function Greeting(props) {
+  return <h1>Hello, {props.name}!</h1>;
+}
+
+Class Components:
+ES6 classes that extend React.Component.
+Manage state and lifecycle methods (like componentDidMount) within the class.
+Were commonly used before hooks but are now less popular.
+
+class Greeting extends React.Component {
+  render() {
+    return <h1>Hello, {this.props.name}!</h1>;
+  }
+}
+
+
+
+answer 6---
+A Single-Page Application (SPA) is a web app that loads a single HTML page and dynamically updates content without reloading the whole page. This makes SPAs faster and smoother, providing a more app-like experience.
+
+How React Enables SPAs:
+Virtual DOM: React uses the virtual DOM to update only parts of the page that need changes, improving performance.
+Component-Based Structure: React organizes the UI into components, making it easy to load and update specific sections.
+React Router: React Router enables navigation between "pages" (components) without reloading, giving the appearance of multiple pages within a single page.
+
+
+
+answer 7---
+Props (short for "properties") are inputs that allow data to be passed from a parent component to a child component in React. They make components more dynamic by allowing you to customize their content.
+
+Key Points:
+Read-Only: Props are immutable, meaning they cannot be changed by the child component.
+Passed from Parent to Child: Data flows from parent to child, enabling a one-way data flow.
+Used to Render Dynamic Data: Props make components reusable by allowing different data to be displayed.
+
+function Greeting(props) {
+  return <h1>Hello, {props.name}!</h1>;
+}
+
+// Usage in Parent Component
+<Greeting name="Alice" />
+
+
+
+
+answer 8---
+
+
+
