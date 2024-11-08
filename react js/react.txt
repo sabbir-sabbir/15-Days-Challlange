@@ -225,4 +225,54 @@ function Form() {
 
 
 
+answer 13---
+A React Fragment is a wrapper component that lets you group multiple elements without adding extra nodes to the DOM, which helps keep your HTML structure cleaner.
+
+Why Use React Fragments:
+Avoids Extra Markup: Fragments prevent the need to add unnecessary divs or other elements just for grouping.
+Improves Performance: Fewer DOM nodes mean a lighter and faster-rendering component.
+Syntax: You can use <React.Fragment>...</React.Fragment> or simply <>...</> for shorthand.
+function List() {
+  return (
+    <>
+      <h1>Title</h1>
+      <p>This is a paragraph.</p>
+    </>
+  );
+}
+
+
+
+
+answer 14---
+In React, you can conditionally render elements using JavaScript logic inside JSX. Here are some common ways to do it:
+
+1. Using Ternary Operator:
+function Welcome(props) {
+  return (
+    <div>
+      {props.isLoggedIn ? <h1>Welcome back!</h1> : <h1>Please log in</h1>}
+    </div>
+  );
+}
+
+
+2. Using if Statement:
+You can use a regular if statement before returning JSX.
+function Greeting(props) {
+  let message;
+  if (props.isLoggedIn) {
+    message = <h1>Welcome back!</h1>;
+  } else {
+    message = <h1>Please log in</h1>;
+  }
+  return <div>{message}</div>;
+}
+
+
+
+
+answer 15---
+
+
 
