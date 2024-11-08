@@ -186,6 +186,41 @@ function Button() {
 
 
 answer 12---
+Controlled Components:
+State-Driven: The input’s value is controlled by React state.
+Two-Way Binding: The input’s value updates through a value prop and an onChange handler.
+
+function Form() {
+  const [name, setName] = React.useState("");
+
+  return (
+    <input 
+      type="text" 
+      value={name} 
+      onChange={(e) => setName(e.target.value)} 
+    />
+  );
+}
+
+
+Uncontrolled Components:
+DOM-Driven: The input’s value is managed by the DOM, not React.
+Ref Access: You access the value directly using a ref.
+
+function Form() {
+  const inputRef = React.useRef();
+
+  const handleSubmit = () => {
+    alert(inputRef.current.value);
+  };
+
+  return (
+    <div>
+      <input type="text" ref={inputRef} />
+      <button onClick={handleSubmit}>Submit</button>
+    </div>
+  );
+}
 
 
 
