@@ -312,4 +312,27 @@ function Counter() {
 
 
 
+answer 2---
+The useEffect hook in React allows you to perform side effects, like fetching data, updating the DOM, or setting up subscriptions, in functional components.
+
+Key Points:
+Runs after render: useEffect runs after the component renders.
+Dependencies: You can control when useEffect runs using the dependency array:
+Empty Array ([]): Runs only once, when the component mounts.
+With Values: Runs when the specified values change.
+Without Array: Runs after every render.
+
+useEffect(() => {
+  console.log("Component mounted or updated");
+
+  return () => {
+    console.log("Cleanup when component unmounts or updates");
+  };
+}, []);  // Empty array means it runs only once when the component mounts.
+
+Explanation: useEffect runs the function when the component mounts, and the return function cleans up when the component unmounts or before the effect runs again.
+
+
+
+
 
