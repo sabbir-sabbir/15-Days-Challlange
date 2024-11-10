@@ -484,6 +484,60 @@ function MyComponent() {
 
 
 answer 8---
+Key Differences
+Usage in Functional vs. Class Components:
+
+useRef: Designed for functional components. It maintains the same reference object across re-renders.
+createRef: Designed for class components. It creates a new reference object each time the component re-renders, making it less suitable for managing persistent data in function components.
+Persistent Reference:
+
+useRef: The same ref object persists across re-renders, which means it can hold onto values or DOM references without resetting on each render.
+createRef: Every re-render generates a new ref object, so values stored in it don’t persist across renders.
+Usage for Storing Mutable Data:
+
+useRef: Often used to store any mutable value (like timers, counters, or previous state) that needs to stay consistent between renders but doesn’t trigger a re-render when updated.
+createRef: Primarily used to create refs in class components and generally focuses on accessing DOM elements.
+
+
+
+answer 9---
+React.memo is a higher-order component in React that optimizes functional components by preventing unnecessary re-renders. It does this by memorizing the component’s output and only re-rendering if its props change.
+
+Key Points About React.memo:
+Performance Optimization: It’s especially useful for improving performance in large apps where re-rendering can be expensive.
+Shallow Comparison: React.memo does a shallow comparison of props to determine if the component needs to update. If the props are the same as before, React skips re-rendering that component.
+When to Use React.memo:
+Use React.memo when:
+The component renders frequently with the same props.
+Re-rendering the component is costly or impacts performance.
+Note: React.memo is most beneficial for pure components, where the output only depends on the props and doesn’t rely on any external data or state.
+
+
+import React from "react";
+
+const Greeting = React.memo(function Greeting({ name }) {
+  console.log("Rendering Greeting");
+  return <h1>Hello, {name}!</h1>;
+});
+
+function App() {
+  const [count, setCount] = React.useState(0);
+
+  return (
+    <div>
+      <Greeting name="Alice" /> {/* Will not re-render unless `name` changes */}
+      <button onClick={() => setCount(count + 1)}>Increase Count</button>
+      <p>Count: {count}</p>
+    </div>
+  );
+}
+
+export default App;
+
+
+
+answer 10---
+
 
 
 
