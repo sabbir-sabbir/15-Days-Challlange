@@ -892,6 +892,34 @@ Accessing the Parameter: Inside UserProfile, useParams is used to access the id 
 
 
 
+answer 6---
+The useParams hook in React Router is used to access the dynamic parameters in the URL (e.g., user IDs, product slugs) defined in a route.
+
+Purpose:
+It allows you to extract values from the URL and use them in your component.
+import React from 'react';
+import { useParams } from 'react-router-dom';
+
+function UserProfile() {
+  const { id } = useParams(); // Access dynamic parameter 'id' from the URL
+  return <h2>User Profile: {id}</h2>;
+}
+
+export default UserProfile;
+
+
+When to Use:
+When you have dynamic routes (like /user/:id) and need to access the dynamic values in the URL.
+
+
+
+
+
+
+
+
+
+
 
 
 
