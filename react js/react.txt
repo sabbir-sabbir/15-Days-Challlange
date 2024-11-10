@@ -833,6 +833,65 @@ Link: Used to navigate to different routes without page reload.
 
 
 
+answer 4---
+In React Router:
+
+Route:
+It is used to define a path (URL) and the component that should be rendered when that path is matched.
+<Route path="/home" component={HomePage} />
+
+Switch:
+It is used to group multiple Route components and ensures that only the first matching route is rendered.
+Without Switch, multiple routes could match the same path, rendering more than one component.
+
+<Switch>
+  <Route path="/home" component={HomePage} />
+  <Route path="/about" component={AboutPage} />
+</Switch>
+
+
+
+
+answer 5---
+In React Router, dynamic routes allow you to define paths that can accept dynamic values, like user IDs or product slugs. You can use URL parameters to make routes dynamic.
+
+How to use dynamic routes:
+Define a dynamic route using a colon (:) in the path to specify a parameter.
+Access the parameter using the useParams hook inside the component.
+import React from 'react';
+import { BrowserRouter as Router, Route, Link, Switch, useParams } from 'react-router-dom';
+
+// Component to display user profile
+function UserProfile() {
+  const { id } = useParams(); // Get dynamic parameter 'id' from the URL
+  return <h2>User Profile: {id}</h2>;
+}
+
+function App() {
+  return (
+    <Router>
+      <nav>
+        <Link to="/user/1">User 1</Link> | 
+        <Link to="/user/2">User 2</Link>
+      </nav>
+      
+      <Switch>
+        <Route path="/user/:id" component={UserProfile} />
+      </Switch>
+    </Router>
+  );
+}
+
+export default App;
+
+
+Explanation:
+Dynamic Route: path="/user/:id" — the :id is a dynamic parameter.
+Accessing the Parameter: Inside UserProfile, useParams is used to access the id parameter.
+
+
+
+
 
 
 
