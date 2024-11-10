@@ -537,6 +537,11 @@ export default App;
 
 
 answer 10---
+React lifecycle methods are special methods that are automatically called at specific points in a React component's lifecycle. They allow you to control and respond to mounting, updating, and unmounting events in a component's life. These lifecycle methods are mostly used in class components, while functional components use React Hooks (useEffect) to achieve similar behavior.
+
+
+
+answer 11---
 
 
 
