@@ -363,6 +363,40 @@ function App() {
 
 
 
+answer 4---
+A Higher-Order Component (HOC) is a function in React that takes a component as an argument and returns a new component with enhanced functionality. HOCs are used to reuse logic across multiple components.
+
+How HOCs Work:
+Input: A component.
+Output: A new component with additional props, behaviors, or lifecycle methods.
+Purpose: Useful for adding shared features like logging, authentication, or data fetching.
+
+
+import React from "react";
+
+// HOC that adds loading functionality
+function withLoading(Component) {
+  return function EnhancedComponent({ isLoading, ...props }) {
+    if (isLoading) return <p>Loading...</p>;
+    return <Component {...props} />;
+  };
+}
+
+// Original Component
+function DataDisplay({ data }) {
+  return <div>Data: {data}</div>;
+}
+
+// Enhanced Component with loading
+const DataDisplayWithLoading = withLoading(DataDisplay);
+
+// Usage
+function App() {
+  return <DataDisplayWithLoading isLoading={true} data="Some data" />;
+}
+
+
+
 
 
 
