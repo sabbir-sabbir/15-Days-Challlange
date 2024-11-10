@@ -945,6 +945,64 @@ When you need to render components outside the regular parent container, e.g., f
 
 
 answer 2---
+Code-splitting is a technique in React that allows you to split your code into smaller bundles so that the browser only loads the necessary code for the page the user is currently viewing. This helps improve performance by reducing the initial load time.
+
+How to Implement Code-Splitting in React:
+React's React.lazy(): Dynamically imports components only when they are needed (i.e., when they are rendered).
+Suspense: Provides a fallback (e.g., loading spinner) while the component is being loaded.
+
+import React, { Suspense, lazy } from 'react';
+
+// Dynamically import the component
+const About = lazy(() => import('./About'));
+
+function App() {
+  return (
+    <div>
+      <h1>My React App</h1>
+
+      <Suspense fallback={<div>Loading...</div>}>
+        <About /> {/* About component will load only when rendered */}
+      </Suspense>
+    </div>
+  );
+}
+
+export default App;
+
+
+
+
+answer 3---
+Lazy loading is a technique where you load components only when they are needed (e.g., when they are displayed on the screen), instead of loading all components at once. This improves the initial load time of the application.
+
+How to Implement Lazy Loading in React:
+Use React.lazy(): Dynamically import components only when they are rendered.
+Wrap with Suspense: Provide a fallback UI (e.g., a loading spinner) while the component is being loaded.
+
+Example:
+import React, { Suspense, lazy } from 'react';
+
+// Dynamically import the component
+const About = lazy(() => import('./About'));
+
+function App() {
+  return (
+    <div>
+      <h1>My React App</h1>
+
+      {/* Suspense shows a loading message until About is loaded */}
+      <Suspense fallback={<div>Loading...</div>}>
+        <About /> {/* This will load only when needed */}
+      </Suspense>
+    </div>
+  );
+}
+
+export default App;
+
+
+
 
 
 
