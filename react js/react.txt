@@ -1002,6 +1002,26 @@ function App() {
 export default App;
 
 
+Key Points:
+React.lazy(): Used to load components lazily when they are needed.
+Suspense: Provides a fallback UI (e.g., a loading spinner) while the component is being loaded.
+
+
+
+answer 4---
+Concurrent Mode in React is a set of new features that help React apps stay responsive and smoothly update the UI, even during heavy rendering tasks. It allows React to work on multiple tasks at once without blocking the user interface.
+
+Benefits of Concurrent Mode:
+Improved User Experience: React can pause and resume work, ensuring the app stays responsive, even during complex updates (like loading large data).
+Faster Rendering: React prioritizes important updates and renders them first, improving performance, especially on slower devices.
+Non-blocking UI: If a heavy component is rendering, React can continue rendering other parts of the app without interruption.
+How It Works:
+React decides which updates are most urgent (e.g., user interactions) and completes them first, even if other updates are still in progress.
+React can suspend rendering for less urgent updates until it’s less busy, improving the overall app speed.
+
+
+
+answer 5---
 
 
 
