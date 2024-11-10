@@ -458,5 +458,35 @@ With Context API: You wrap the top-level component in a UserContext.Provider, an
 
 
 
+answer 7---
+Refs in React are used to access and interact with DOM elements or React elements directly, bypassing the usual React data flow.
+
+Key Points About Refs:
+Access DOM Elements: Refs allow you to directly access and manipulate a DOM element (e.g., focus an input, trigger animations, or measure an element’s size).
+Persist Values: Refs can store mutable values that don’t cause re-renders when updated, like keeping track of a previous state or tracking a timer ID.
+Use with useRef or React.createRef:
+In functional components: Use the useRef hook.
+In class components: Use React.createRef.
+
+import React, { useRef, useEffect } from "react";
+
+function MyComponent() {
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    // Automatically focus the input field when the component mounts
+    inputRef.current.focus();
+  }, []);
+
+  return <input ref={inputRef} placeholder="Type here..." />;
+}
+
+
+
+answer 8---
+
+
+
+
 
 
