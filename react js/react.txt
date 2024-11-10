@@ -542,6 +542,181 @@ React lifecycle methods are special methods that are automatically called at spe
 
 
 answer 11---
+componentDidMount and componentWillUnmount are lifecycle methods in React class components that are used to handle side effects related to mounting (adding to the DOM) and unmounting (removing from the DOM) of a component.
+
+1. componentDidMount
+When It Runs: This method runs once, immediately after the component is added to the DOM.
+
+Purpose: Used to set up anything that requires the component to be on the page, such as:
+
+Fetching data (e.g., making API requests)
+Setting up subscriptions (e.g., listening to data updates from WebSockets)
+Starting timers or initializing animations
+class MyComponent extends React.Component {
+  componentDidMount() {
+    // Fetch data or set up a subscription here
+    console.log("Component mounted");
+  }
+
+  render() {
+    return <div>Hello World!</div>;
+  }
+}
+
+
+2. componentWillUnmount
+When It Runs: This method runs once, just before the component is removed from the DOM.
+
+Purpose: Used to clean up resources to avoid memory leaks or unwanted behaviors after the component is unmounted. Common tasks include:
+
+Clearing timers
+Unsubscribing from event listeners or WebSocket connections
+Canceling API requests if they’re still in progress
+class MyComponent extends React.Component {
+  componentDidMount() {
+    this.timer = setInterval(() => console.log("Timer running"), 1000);
+  }
+
+  componentWillUnmount() {
+    // Clean up the timer when the component unmounts
+    clearInterval(this.timer);
+  }
+
+  render() {
+    return <div>Component with Timer</div>;
+  }
+}
+
+
+
+answer 12---
+The useCallback hook in React is used to memoize functions and prevent them from being recreated on every render. This is especially useful when passing functions as props to child components or using functions in dependencies of other hooks like useEffect.
+
+How useCallback Works:
+Memoization: useCallback returns a memoized version of the function you pass to it, only recreating the function if one of its dependencies changes.
+Syntax: const memoizedCallback = useCallback(() => { /* function */ }, [dependencies]);
+Why useCallback Is Useful:
+Performance Optimization: Helps reduce unnecessary re-renders by ensuring that functions are only recreated when needed.
+Avoiding Re-Creation: In React, functions are recreated on each render by default, which can be a problem when passing functions to child components or using them in dependencies.
+Consistency with Dependencies: useCallback ensures that functions used as dependencies in useEffect or other hooks only change if relevant dependencies change.
+
+
+import React, { useState, useCallback } from "react";
+
+function ParentComponent() {
+  const [count, setCount] = useState(0);
+
+  // useCallback memoizes this function so it only changes when `count` changes
+  const handleIncrement = useCallback(() => {
+    setCount(count + 1);
+  }, [count]);
+
+  return (
+    <div>
+      <h1>Count: {count}</h1>
+      <ChildComponent onIncrement={handleIncrement} />
+    </div>
+  );
+}
+
+function ChildComponent({ onIncrement }) {
+  console.log("Child component re-rendered");
+  return <button onClick={onIncrement}>Increment</button>;
+}
+
+
+
+
+answer 13---
+The useMemo hook in React is used to memoize values and optimize performance by preventing expensive recalculations of those values on every render. It ensures that a value is only recomputed when its dependencies change.
+
+Why useMemo Is Useful:
+Performance Optimization: Helps avoid expensive recalculations of values on each render, improving the performance of your app.
+Memoizing Computations: Particularly useful for functions that involve complex calculations or operations based on props or state, where recalculating on every render would be inefficient.
+Preventing Unnecessary Renders: Helps prevent unnecessary re-renders in components by memoizing the output value and passing it to child components.
+
+Here’s an example where useMemo is used to avoid recalculating a list of filtered items unless the items array or filter state changes.
+import React, { useState, useMemo } from "react";
+
+function ItemList({ items }) {
+  const [filter, setFilter] = useState("");
+
+  // Memoize the filtered list, only recalculating when `items` or `filter` changes
+  const filteredItems = useMemo(() => {
+    return items.filter(item => item.includes(filter));
+  }, [items, filter]);
+
+  return (
+    <div>
+      <input
+        type="text"
+        placeholder="Filter items"
+        value={filter}
+        onChange={(e) => setFilter(e.target.value)}
+      />
+      <ul>
+        {filteredItems.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+
+Explanation:
+useMemo is used to memoize the filteredItems array, so it will only be recalculated when either the items array or the filter state changes.
+Without useMemo, every time the component re-renders (due to state changes, for example), the filteredItems array would be recalculated even if the filter state didn't change, leading to unnecessary computations.
+
+
+
+
+answer 14---
+In React, controlled components are form elements (like <input>, <textarea>, or <select>) whose value is controlled by React state. This means the form element’s value is driven by the component's state, and changes to the form element are handled through state updates.
+
+How Controlled Components Work:
+The value of the input is set by the component’s state (using value attribute).
+Any user input updates the state (using onChange event handler).
+The state and the form element are linked — React controls the value and the updates.
+import React, { useState } from "react";
+
+function ControlledForm() {
+  const [inputValue, setInputValue] = useState("");  // state to control the input value
+
+  // handle input change
+  const handleChange = (event) => {
+    setInputValue(event.target.value);  // update state with input value
+  };
+
+  // handle form submission
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log("Form submitted with value:", inputValue);
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <label>
+        Enter something:
+        <input
+          type="text"
+          value={inputValue}         // controlled by state
+          onChange={handleChange}    // updates state on input change
+        />
+      </label>
+      <button type="submit">Submit</button>
+    </form>
+  );
+}
+
+export default ControlledForm;
+
+
+
+
+React Router Questions:.........................................{}{}{}{{{{}{{{{}}{{{{}{{{}}}}}}}}}}}
+
+
 
 
 
